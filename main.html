@@ -45,6 +45,16 @@
 </div>
 
 <script>
+	// Wait for the element to be visible and then click
+cy.get('.right.carousel-control').should('be.visible').click();
+
+// Assertion for the next slide
+cy.get('.fourth-slide').should('be.visible');
+// Scroll to the element before clicking
+cy.get('.right.carousel-control').scrollIntoView().click();
+// Click the element without checking visibility
+cy.get('.right.carousel-control').click({ force: true });
+
   $(document).ready(function(){
     // Activate the third slide on page load
     $('.third-slide').addClass('active');
